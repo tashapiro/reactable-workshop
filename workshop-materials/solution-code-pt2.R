@@ -1,6 +1,8 @@
 library(tidyverse)
 library(reactable)
 library(reactablefmtr)
+library(glue)
+library(htmltools)
 
 #import helper functions
 source('helper_functions.R')
@@ -22,7 +24,7 @@ group_by(iso2, location)%>%
 #define aesthetics for reactable
 left_border<-cell_style(border_color = "#f2f2f2",border_style = "solid",border_width = "1px 0px 0px 2px")
 right_border<-cell_style(border_color = "#f2f2f2",border_style = "solid",border_width = "1px 0px 2px 0px")
-heatmap_pal<-RColorBrewer::brewer.pal(6, name="OrRd")
+heatmap_pal<-c("#FEF0D9", "#FDD49E", "#FDBB84", "#FC8D59" ,"#E34A33" ,"#B30000")
 
 #create reactable
 reactable(
