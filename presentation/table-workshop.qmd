@@ -6,6 +6,7 @@ date: "2023-04-24"
 format:
   revealjs:
     theme: "files/custom.scss"
+    self-contained: TRUE
 editor: visual
 ---
 
@@ -92,7 +93,7 @@ editor: visual
 <br>
 
 |                                      |                                           |
-|:-----------------------:|-----------------------------------------------|
+|:--------------------------------:|--------------------------------------|
 | [**15 min**]{style="color:#3E3EFC;"} | Intro to <code>reactable</code>, HTML/CSS |
 | [**40 min**]{style="color:#3E3EFC;"} | Hands-on coding: basic table              |
 | [**10 min**]{style="color:#3E3EFC;"} | Q&A session                               |
@@ -110,9 +111,8 @@ editor: visual
     <div class="list-title" data-transition="slide">Easy to Understand</div>
   </div>
     <ul>
-      <li>Familiar format</li>
-      <li>Clear visualization</li>
-      <li>Intuitive and interpretable</li>
+      <li>Familiar format for most audiences, intuitive & interpertable</li>
+      <li>Easy to scan, compare, and contrast many records</li>
     </ul>
   </div>
   <div class="list-item">
@@ -121,20 +121,9 @@ editor: visual
       <div class="list-title">Organized Structure</div>
     </div>
     <ul>
-      <li>All rows & columns</li>
-      <li>Sortable</li>
-      <li>Filterable</li>
-      <li>Searchable</li>
-    </ul>
-  </div>
-  <div class="list-item">
-    <div class="list-header">
-      <i class="fas fa-cogs"></i>
-      <div class="list-title">Flexible Design</div>
-    </div>
-    <ul>
-      <li>Customizable views</li>
-      <li>Scalable data sets</li>
+      <li>All rows & columns!</li>
+      <li>Sortable, filterable, searchable</li>
+      <li>Good for visualizing a lot of data points</li>
     </ul>
   </div>
   <div class="list-item">
@@ -143,8 +132,8 @@ editor: visual
     <div class="list-title">Easy to create</div>
     </div>
     <ul>
-      <li>Mimics most raw data structures</li>
-      <li>Simple to translate</li>
+      <li>Mimics most data structures, simple to translate</li>
+      <li>Lot of design opportunities - fonts, colors, heatmaps</li>
     </ul>
   </div>
 </div>
@@ -188,7 +177,7 @@ editor: visual
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: calc(23% - 20px);
+    width: calc(32% - 20px);
     padding: 10px 10px;
     padding-top:40px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -263,17 +252,24 @@ stock_table
 ```
 ## Add HTML & CSS directly in R
 
--   It's ok if you're new to this world, we'll cover basics!
 
--   **HTML** = structure (divs, spans)
+```{=html}
+<div style="display: flex; align-items: center;">
+  <div style="flex: 1;">
+    <ul>
+      <li>HTML = structure (divs, spans)</li>
+      <li>CSS = lipstick (font family, color, spacing)</li>
+      <li>Use this combo to create more custom styling to tables</li>
+    </ul>
+  </div>
+  <div style="flex: 1; text-align: center;">
+    <img src="files/images/html-and-css-meme.webp">
+  </div>
+</div>
 
--   **CSS** = lipstick (font family, color, spacing)
+```
 
--   Use this combo to create more custom styling to tables
 
--   Write HTML/CSS directly in R with <code>htmltools</code>
-
-![](files/images/html-and-css-meme.webp){fig-align="center"}
 
 ## How it all fits together
 
@@ -282,7 +278,3 @@ stock_table
 ## Let's Start Coding!
 
 ![](files/images/jim-typing.gif){fig-align="center"}
-
-## Thank You
-
-![](files/images/keanu-thanks.gif)
