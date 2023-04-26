@@ -1,0 +1,81 @@
+/*-- scss:defaults --*/
+
+// fonts
+$font-family-sans-serif: "Archivo";
+$primary-color:#3E3EFC	;
+$grey:#657884;
+$secondary-color:#2696F8;
+
+// colors
+$body-bg: #ffffff !default;
+$body-color: #000 !default;
+$link-color: $primary-color;
+$selection-bg: #26351c !default;
+
+// headings
+$presentation-heading-font: "Archivo";
+$presentation-heading-color: #1C2826;
+$presentation-heading-bg-color: #000000;
+
+
+
+.slide-background.quarto-title-block {
+  background-color: $primary-color!important;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Chivo:400italic,700italic,400,700);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@200;300;400;500;600;700;800;900&display=swap');
+
+@import url("https://use.fontawesome.com/releases/v5.15.3/css/all.css");
+
+
+
+
+.rt-table, .rt-pagination {
+  font-size: 0.45em!important;
+}
+
+.rt-td-inner{
+  padding:0px!important;
+}
+
+code {
+  color:$grey!important;
+}
+
+ .blocks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.block i {
+  margin-right: 20px;
+  margin-left:10px;
+}
+
+.block {
+  border-radius:10px;
+  height:80px;
+  flex: 1 1 calc(50% - 20px); /* changed */
+  background-color: $primary-color;
+  color: white;
+  margin: 1%;
+  padding: 2%;
+  opacity: 1;
+  transition: opacity 0.5s;
+  display: flex; /* added */
+  justify-content: left; /* added */
+  align-items: center; /* added */
+  text-align: left; /* added */
+}
+
+.block code {
+  color: whitesmoke !important;
+}
+
+

@@ -1,0 +1,288 @@
+---
+title: "Designing Beautiful Tables in R"
+subtitle: "Part of Workshops for Ukraine 🇺🇦"
+author: "Tanya Shapiro"
+date: "2023-04-24"
+format:
+  revealjs:
+    theme: "files/custom.scss"
+editor: visual
+---
+
+## Hi, I'm Tanya 👋
+
+```{=html}
+<div class="about-me" style="display:flex;align-items:center;">
+<img src="files/images/tanya-headshot.jpeg">
+  <div style='margin-left:30px;'>
+    <ul>
+        <li>Independent data consultant, specializing in data analysis and visualization design</li>
+      <li>Previously worked in insurance industry</li>
+      <li>Fell in love with R via <a href='https://github.com/rfordatascience/tidytuesday'>#TidyTuesday</a></li>
+      <li>Data geek based in St. Pete, FL</li>
+    </ul>
+  </div>
+</div>
+   <div class="social-icons">
+      <a href="https://github.com/tashapiro"><i class="fab fa-github"></i></a>
+      <a href="https://twitter.com/tanya_shapiro"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/shapirotanya/"><i class="fab fa-linkedin"></i></a>
+      <a href="https://mastodon.social"><i class="fab fa-mastodon"></i></a>
+      <a href="www.tanyaviz.com"><i class="fas fa-globe"></i></a>
+    </div>
+
+<style>
+  
+  .about-me {
+    margin-top:50px;
+    vertical-align:middle;}
+    
+    
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    font-size:1.2em;
+    width:50%;
+    margin-left:200px;
+  }
+  
+  .social-icons a {
+    display: inline-flex;
+    margin-left:15px;
+    margin-right:15px;
+  }
+  
+
+
+  .about-me img {
+      width: 220px!important;
+      height:220px;
+      clip-path: inset(0 0 0 0 round 50%);
+  }
+</style>
+```
+## Today We'll Learn About...
+
+```{=html}
+<div class="blocks">
+  <div class="block" data-step="1"><i class="fas fa-table"></i><span>Building Tables with <code>reactable</code></span></div>
+  <div class="block" data-step="2"><i class="fas fa-paint-brush"></i><span>Basic Styling with <code>reactablefmtr</code></span></div>
+  <div class="block" data-step="3"><i class="fas fa-code"></i><span>Advanced Styling with <code>htmltools</code> (HTML/CSS)</span></div>
+  <div class="block" data-step="4"><i class="fas fa-file-export"></i><span>Exporting Tables - interactive & static</span></div>
+</div>
+
+
+<style>
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+</style>
+```
+## Workshop Agenda
+
+<br>
+
+|                                      |                                           |
+|:-----------------------:|-----------------------------------------------|
+| [**15 min**]{style="color:#3E3EFC;"} | Intro to <code>reactable</code>, HTML/CSS |
+| [**40 min**]{style="color:#3E3EFC;"} | Hands-on coding: basic table              |
+| [**10 min**]{style="color:#3E3EFC;"} | Q&A session                               |
+| [**30 min**]{style="color:#3E3EFC;"} | Hands-on coding: advanced table           |
+| [**15 min**]{style="color:#3E3EFC;"} | Wrap-up, Q&A session                      |
+
+## Why tables?
+
+```{=html}
+
+<div class="horizontal-list">
+  <div class="list-item">
+  <div class="list-header">
+    <i class="fas fa-brain"></i>
+    <div class="list-title" data-transition="slide">Easy to Understand</div>
+  </div>
+    <ul>
+      <li>Familiar format</li>
+      <li>Clear visualization</li>
+      <li>Intuitive and interpretable</li>
+    </ul>
+  </div>
+  <div class="list-item">
+    <div class="list-header">
+      <i class="fas fa-th-large"></i>
+      <div class="list-title">Organized Structure</div>
+    </div>
+    <ul>
+      <li>All rows & columns</li>
+      <li>Sortable</li>
+      <li>Filterable</li>
+      <li>Searchable</li>
+    </ul>
+  </div>
+  <div class="list-item">
+    <div class="list-header">
+      <i class="fas fa-cogs"></i>
+      <div class="list-title">Flexible Design</div>
+    </div>
+    <ul>
+      <li>Customizable views</li>
+      <li>Scalable data sets</li>
+    </ul>
+  </div>
+  <div class="list-item">
+    <div class="list-header">
+    <i class="fas fa-pencil-alt"></i>
+    <div class="list-title">Easy to create</div>
+    </div>
+    <ul>
+      <li>Mimics most raw data structures</li>
+      <li>Simple to translate</li>
+    </ul>
+  </div>
+</div>
+
+<style>
+.horizontal-list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    height:75%;
+    padding: 0;
+    margin-top:3%;
+  }
+  
+  .list-header {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .list-title {
+    font-weight: 600;
+    font-size: 0.9em;
+    text-align:center;
+  }
+  
+  .horizontal-list ul {
+    font-size: 0.7em;
+    align-items: flex-start;
+  }
+  
+  .horizontal-list i {
+    margin-bottom: 20px;
+    font-size:1.5em;
+    color: #3E3EFC;
+    text-align: center;
+  }
+  
+.list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(23% - 20px);
+    padding: 10px 10px;
+    padding-top:40px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius:10px;
+}
+  
+  .list-item img {
+    height: 60px;
+    margin-bottom: 10px;
+  }
+  
+  .list-item p {
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+  }
+</style>
+```
+## But they don't have to look like...
+
+![](files/images/bad-table.jpeg)
+
+## We can do more with tables...
+
+```{r}
+
+source("files/big-tech.R")
+
+stock_table
+```
+
+## Examples in Media: 538
+
+![Table from 538 summarizing MLB stats and predictions by team.](files/images/538-baseball.png)
+
+## Examples in Media: NYT
+
+![Table from the New York Times displaying COVID-19 information by state](files/images/nyt-covid.png){fig-align="center"}
+
+## What is <code>reactable</code>?
+
+-   R library for building interactive data tables
+-   Based on React Table (JS)
+-   Includes features like column formatting, sorting, filtering, pagination, searching, grouping, and conditional styling
+-   Great for interactive HTML documents (R Markdown, Quarto) and Shiny apps
+-   Bonus: includes [extensive documentation](https://glin.github.io/reactable/) !
+
+## Powering-Up <code>reactable</code>
+
+```{=html}
+
+<div class='content'>
+<ul>
+  <li><code><a href='https://kcuilla.github.io/reactablefmtr/'>reactablefmtr</a></code> is an extension package that supports <code>reactable</code></li>
+  <li>Makes it easy to customize and stylize reactable without requiring HTML or CSS knowledge.</li>
+  <li><strong>Examples:</strong> embed images and icons, add sparklines, apply color scales and themes</li>
+  </ul>
+<img src='files/images/popeye.png'>
+</div>
+
+<style>
+ .content{
+  display:flex;
+}
+
+.content img{
+  margin-left:20px;
+  height:500px;
+}
+
+</style>
+```
+## Add HTML & CSS directly in R
+
+-   It's ok if you're new to this world, we'll cover basics!
+
+-   **HTML** = structure (divs, spans)
+
+-   **CSS** = lipstick (font family, color, spacing)
+
+-   Use this combo to create more custom styling to tables
+
+-   Write HTML/CSS directly in R with <code>htmltools</code>
+
+![](files/images/html-and-css-meme.webp){fig-align="center"}
+
+## How it all fits together
+
+![](files/images/table-workflow.png){style="margin-top:20px;" fig-align="center"}
+
+## Let's Start Coding!
+
+![](files/images/jim-typing.gif){fig-align="center"}
+
+## Thank You
+
+![](files/images/keanu-thanks.gif)
