@@ -33,7 +33,7 @@ In this 2hr workshop, participants will learn how to create visually engaging, i
 ## Set Up
 
 -   Install [RStudio](https://posit.co/download/rstudio-desktop/)
--   Install packages: `tidyverse`, `reactable`, `reactablefmtr`, `htmltools`, `htmlwidgets`, `webshot2`
+-   Install packages: `tidyverse`, `glue`, `reactable`, `reactablefmtr`, `htmltools`, `htmlwidgets`, `webshot2`
 -   Install `dataui` package with remote install
 
 ## Additional Resources
