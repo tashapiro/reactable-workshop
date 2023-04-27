@@ -24,8 +24,9 @@ In this 2hr workshop, participants will learn how to create visually engaging, i
 
 ## Materials
 
--   [Slides](presentation/table-workshop.html)
+-   [Slides](https://tashapiro.github.io/reactable-workshop/presentation/table-workshop.html)
 -   [Starter Code Pt 1](workshop-materials/starter-code-pt1.R)
+-   [Starter Code Pt 1](workshop-materials/starter-code-pt2.R)
 -   [Solution Code Pt 1](workshop-materials/solution-code-pt1.R)
 -   [Solution Code Pt 2](workshop-materials/solution-code-pt2.R)
 
@@ -41,3 +42,5 @@ In this 2hr workshop, participants will learn how to create visually engaging, i
 -   Documentation and examples on [reactablefmtr](https://kcuilla.github.io/reactablefmtr/)
 -   HTML / CSS basics - [W3 Schools](https://www.w3schools.com/)
 -   Test out HTML/CSS with [CodePen](https://codepen.io/)
+-   List of [Google Fonts](https://fonts.google.com/) (use with `reactablefmtr::google_font`)
+-   [Font Awesome Icon Library](https://fontawesome.com/)- reactablefmtr `icon_sets` & `icon_assign`
