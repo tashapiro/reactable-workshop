@@ -40,6 +40,7 @@ In this 2hr workshop, participants will learn how to create visually engaging, i
 
 -   Documentation for [reactable](https://glin.github.io/reactable/)
 -   Documentation and examples on [reactablefmtr](https://kcuilla.github.io/reactablefmtr/)
+-   [Posit PBC Interview with Greg Lin](https://www.youtube.com/watch?v=Qn6ojMkQFNw) (reactable creator)
 -   HTML / CSS basics - [W3 Schools](https://www.w3schools.com/)
 -   Test out HTML/CSS with [CodePen](https://codepen.io/)
 -   List of [Google Fonts](https://fonts.google.com/) (use with `reactablefmtr::google_font`)
