@@ -1,4 +1,8 @@
 # IMPORT LIBRARIES
+#to install packages you can either use the UI (Packages ->Install)
+#or you can install with install.packages("packagename")
+#note, one library is not on CRAN - remotes::install_github("timelyportfolio/dataui")
+
 #to build our tables
 library(reactablefmtr)
 library(reactable)
@@ -13,10 +17,10 @@ library(webshot2)
 
 
 #IMPORT HELPER FUNCTIONS - used for additional HTML/CSS styling
-source("helper_functions.R")
+source("https://raw.githubusercontent.com/tashapiro/reactable-workshop/main/workshop-materials/helper_functions.R")
 
 #IMPORT DATA
-artist_data<- read.csv("data/spotify-artists.csv")
+artist_data<- read.csv("https://raw.githubusercontent.com/tashapiro/reactable-workshop/main/workshop-materials/data/spotify-artists.csv")
 
 #WRANGLE DATA
 spotify_artists<-artist_data%>%
@@ -117,8 +121,8 @@ spotify_finished<-spotify_table%>%
 #preview table output
 spotify_finished
 
-#export as HTML widget
+#export as HTML widget with htmlwidget
 htmlwidgets::saveWidget(spotify_finished, "exported/spotify_table.html", selfcontained=TRUE)
 
-#export as png
+#export as png with webshot2
 webshot(url="exported/spotify_table.html", file="exported/spotify_table.png")
