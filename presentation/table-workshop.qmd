@@ -2,7 +2,7 @@
 title: "Designing Beautiful Tables in R"
 subtitle: "Part of Workshops for Ukraine 🇺🇦"
 author: "Tanya Shapiro"
-date: "2023-04-24"
+date: "2023-04-27"
 format:
   revealjs:
     theme: "files/custom.scss"
@@ -252,7 +252,6 @@ stock_table
 ```
 ## Add HTML & CSS directly in R
 
-
 ```{=html}
 <div style="display: flex; align-items: center;">
   <div style="flex: 1;">
@@ -266,11 +265,7 @@ stock_table
     <img src="files/images/html-and-css-meme.webp">
   </div>
 </div>
-
 ```
-
-
-
 ## How it all fits together
 
 ![](files/images/table-workflow.png){style="margin-top:20px;" fig-align="center"}
