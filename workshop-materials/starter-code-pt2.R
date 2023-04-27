@@ -9,7 +9,7 @@ source("https://raw.githubusercontent.com/tashapiro/reactable-workshop/main/work
 
 #import data files - total cases per million and monthly cases
 per_million<-read_csv("https://raw.githubusercontent.com/tashapiro/reactable-workshop/main/workshop-materials/data/cases-per-million.csv")
-monthly_cases<-read_csv("https://github.com/tashapiro/reactable-workshop/blob/main/workshop-materials/data/monthly-cases.csv")
+monthly_cases<-read_csv("https://raw.githubusercontent.com/tashapiro/reactable-workshop/main/workshop-materials/data/monthly-cases.csv")
 
 #combine data sets and aggregate monthly cases per country
 covid_data<-monthly_cases%>%
